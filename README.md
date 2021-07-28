@@ -2,7 +2,7 @@
 
 Staff Clock-In System using MERN Stack
 
-> Feature list
+## Feature list
 
 - [ ] Staff creation
 - [ ] Staff update details (only name)
@@ -11,6 +11,13 @@ Staff Clock-In System using MERN Stack
   - [ ] Clock in
   - [ ] Clock out
 
----
+> [ ] View staff details
 
-- [ ] View staff details
+## Stack branches
+
+- [Frontend]()
+- [Backend]()
+
+## Deployment
+
+[#](#)
