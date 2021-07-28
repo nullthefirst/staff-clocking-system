@@ -17,6 +17,6 @@ Staff Clock-In System using MERN Stack
 - [Frontend](https://github.com/nullthefirst/staff-clocking-system/tree/frontend)
 - [Backend](https://github.com/nullthefirst/staff-clocking-system/tree/backend)
 
-## Deployment
+## Deployments
 
-[#](#)
+- [User Interface](https://staff-clocking-system.netlify.app/)
