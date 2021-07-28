@@ -10,8 +10,7 @@ Staff Clock-In System using MERN Stack
 - [ ] Staff ID required
   - [ ] Clock in
   - [ ] Clock out
-
-> [ ] View staff details
+- [ ] View staff details
 
 ## Stack branches
 
