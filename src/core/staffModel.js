@@ -5,17 +5,15 @@ const StaffSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  staff_id: {
+  email: {
     type: String,
     required: true,
   },
   clockIn: {
     type: Date,
-    default: Date.now,
   },
   clockOut: {
     type: Date,
-    default: Date.now,
   },
 });
 
