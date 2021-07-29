@@ -5,9 +5,12 @@ function createId(text) {
 
   for (let nameItem of textArray) {
     staffId.push(nameItem.toLowerCase());
+    staffId.push('-');
   }
 
-  staffId.push('@company.com');
+  staffId.pop();
+
+  staffId.push('#company');
 
   return staffId.join('');
 }
