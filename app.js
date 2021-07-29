@@ -17,6 +17,7 @@ const mongoURL = `mongodb+srv://nullthefirst:${process.env.MONGODB_PASSWORD}@rel
 mongoose.connect(mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
   dbName: process.env.MONGODB_DATABASE,
 });
 
