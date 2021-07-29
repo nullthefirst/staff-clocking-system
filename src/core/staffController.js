@@ -5,7 +5,9 @@ const Staff = require('./staffModel');
 exports.create = async (req, res) => {
   const _staff = new Staff();
   _staff.name = req.body.name ? req.body.name : _staff.name;
-  _staff.email = idCreator(req.body.name ? req.body.name : _staff.name);
+  _staff.staff_id = idCreator(req.body.name ? req.body.name : _staff.name);
+  _staff.department = req.body.department;
+  _staff.companyEmail = req.body.companyEmail;
   _staff.clockIn = req.body.clockIn;
   _staff.clockOut = req.body.clockOut;
 
