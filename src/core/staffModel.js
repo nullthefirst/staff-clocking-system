@@ -5,9 +5,14 @@ const StaffSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  staff_id: {
     type: String,
-    required: true,
+  },
+  department: {
+    type: String,
+  },
+  companyEmail: {
+    type: String,
   },
   clockIn: {
     type: Date,
