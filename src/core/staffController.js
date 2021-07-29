@@ -44,6 +44,29 @@ exports.details = (req, res) => {
   });
 };
 
+// update staff details (name)
+exports.update = async (req, res) => {
+  Staff.findById(req.params.id, (err, _staff) => {
+    if (err) {
+      res.json(err);
+    }
+
+    try {
+      _staff.name = req.body.name;
+    } catch (error) {
+      res.json(err);
+    }
+
+    _staff.save((err) => {
+      if (err) {
+        res.json(err);
+      }
+
+      res.json({ message: 'Staff member updated', data: _staff });
+    });
+  });
+};
+
 // register clock-in
 
 // register clock-out
