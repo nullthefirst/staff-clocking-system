@@ -5,7 +5,7 @@ const Staff = require('./staffModel');
 exports.create = async (req, res) => {
   const _staff = new Staff();
   _staff.name = req.body.name ? req.body.name : _staff.name;
-  _staff.staff_id = idCreator(req.body.name ? req.body.name : _staff.name);
+  _staff.email = idCreator(req.body.name ? req.body.name : _staff.name);
   _staff.clockIn = req.body.clockIn;
   _staff.clockOut = req.body.clockOut;
 
@@ -32,8 +32,17 @@ exports.list = async (req, res) => {
 };
 
 // display staff details
-
-// update staff details (name)
+exports.details = (req, res) => {
+  Staff.findById(req.params.id, (err, _staff) => {
+    if (err) {
+      res.json({
+        dbError: err,
+        message: 'No staff member matching credential found',
+      });
+    }
+    res.json({ message: 'Staff member found', data: _staff });
+  });
+};
 
 // register clock-in
 
