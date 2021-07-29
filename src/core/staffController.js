@@ -45,7 +45,7 @@ exports.details = (req, res) => {
 };
 
 // update staff details (name)
-exports.update = async (req, res) => {
+exports.update = (req, res) => {
   Staff.findById(req.params.id, (err, _staff) => {
     if (err) {
       res.json(err);
@@ -64,6 +64,16 @@ exports.update = async (req, res) => {
 
       res.json({ message: 'Staff member updated', data: _staff });
     });
+  });
+};
+
+// staff deletion
+exports.fire = (req, res) => {
+  Staff.deleteOne({ _id: req.params.id }, (err) => {
+    if (err) {
+      res.json(err);
+    }
+    res.json({ message: 'Staff member deleted' });
   });
 };
 
