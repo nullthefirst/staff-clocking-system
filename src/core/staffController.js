@@ -101,3 +101,31 @@ exports.inside = (req, res) => {
 };
 
 // register clock-out
+exports.outside = (req, res) => {
+  Staff.findById(req.params.id, (err, _staff) => {
+    if (err) {
+      res.json(err);
+    }
+
+    let responseMessage;
+
+    try {
+      if (_staff.clockIn) {
+        _staff.clockOut = Date(Date.now());
+        responseMessage = 'Staff clocked out';
+      } else {
+        responseMessage = 'Staff needs to clock in first';
+      }
+    } catch (err) {
+      res.json(err);
+    }
+
+    _staff.save((err) => {
+      if (err) {
+        res.json(err);
+      }
+
+      res.json({ message: responseMessage, data: _staff });
+    });
+  });
+};
