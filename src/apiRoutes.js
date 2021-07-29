@@ -9,6 +9,7 @@ router
   .route('/:id')
   .get(staffController.details)
   .put(staffController.update)
-  .patch(staffController.update);
+  .patch(staffController.update)
+  .delete(staffController.fire);
 
 module.exports = router;
