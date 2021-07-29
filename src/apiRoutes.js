@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const Staff = require('./core/staffModel');
-const idCreator = require('./custom/idCreator');
+const staffController = require('./core/staffController');
+
+router.route('/').get(staffController.list);
+// .post(staffController.create)
+
+module.exports = router;
