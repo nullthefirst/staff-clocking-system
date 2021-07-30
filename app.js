@@ -9,7 +9,7 @@ const app = express();
 
 // setup middleware
 app.use(cors({ origin: true, credentials: true }));
-app.user((req, res, next) => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
