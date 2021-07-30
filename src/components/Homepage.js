@@ -42,9 +42,13 @@ class Homepage extends React.Component {
           <div className="col col-md-8">
             <h2>{titleText}</h2>
             <div className="my-5"></div>
-
             <Link to={`/staff`} className="link-alt mb-3">
               <span>Staff directory</span>
+              <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
+            </Link>
+            <div className="my-1"></div>
+            <Link to={`/create`} className="link-alt mb-3">
+              <span>Staff registration</span>
               <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
             </Link>
           </div>
