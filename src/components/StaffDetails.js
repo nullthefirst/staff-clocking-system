@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import StaffDetailItem from './StaffDetailItem';
+import { Link } from 'react-router-dom';
 
 class StaffDetails extends React.Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class StaffDetails extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('Print id: ' + this.props.match.params.id);
     axios
       .get(
         `https://staff-clocking-system.herokuapp.com/api/${this.props.match.params.id}`,
@@ -27,12 +27,6 @@ class StaffDetails extends React.Component {
         console.error(err);
         console.log('Error fetching staff details');
       });
-
-    const staffDirectoryBlock = document.getElementById('staffDirectory');
-
-    if (staffDirectoryBlock) {
-      staffDirectoryBlock.innerHTML = '';
-    }
   }
 
   componentWillUnmount() {
@@ -47,7 +41,10 @@ class StaffDetails extends React.Component {
 
     const staffDisplay = (
       <div>
-        <h2 className="text-info">{staffMember.name}</h2>
+        <Link to={`/staff`} className="big-btn mb-3">
+          <i className="bi bi-arrow-left-square-fill text-light"></i>
+        </Link>
+        <h1 className="text-primary">{staffMember.name}</h1>
         <ol className="list-group">
           <StaffDetailItem label="Staff ID" text={staffMember.staff_id} />
           <StaffDetailItem label="Department" text={staffMember.department} />
@@ -68,6 +65,11 @@ class StaffDetails extends React.Component {
             }
           />
         </ol>
+        <div className="my-5"></div>
+        <Link to={`/update/${staffMember._id}`} className="link-alt mt-5">
+          <span>Update staff details</span>
+          <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
+        </Link>
       </div>
     );
 
