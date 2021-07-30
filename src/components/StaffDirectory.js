@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import StaffListItem from './StaffListItem';
+import { Link } from 'react-router-dom';
 
 class StaffDirectory extends React.Component {
   constructor(props) {
@@ -26,16 +26,38 @@ class StaffDirectory extends React.Component {
       });
   }
 
+  componentWillUnmount() {
+    this.setState({
+      staffList: [],
+      hasLoaded: false,
+    });
+  }
+
   render() {
     const staffInfo = this.state.staffList;
 
     const staffDisplay = (
       <ol className="list-group list-group-numbered">
-        {staffInfo.map((staff) => {
-          return <StaffListItem name={staff.name} identity={staff.staff_id} />;
+        {staffInfo.map(({ name, staff_id, _id }) => {
+          return (
+            <li
+              key={staff_id}
+              className="list-group-item d-flex justify-content-between align-items-start ">
+              <div className="ms-2 me-auto">
+                <div className="fw-bold">{name}</div>
+                <button className="btn btn-info me-2">
+                  <Link to={`/staff/${_id}`}>
+                    <i className="bi bi-arrow-up-right-square-fill text-light"></i>
+                  </Link>
+                </button>
+                <span>ID: {staff_id}</span>
+              </div>
+            </li>
+          );
         })}
       </ol>
     );
+
     const contentMarkup = this.state.hasLoaded ? (
       staffDisplay
     ) : (
@@ -47,7 +69,7 @@ class StaffDirectory extends React.Component {
     );
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" id="staffDirectory">
         <div className="row">
           <div className="col col-md-8">
             <h2 className="text-info">Staff Directory</h2>
