@@ -36,8 +36,8 @@ exports.details = (req, res) => {
   Staff.findById(req.params.id, (err, _staff) => {
     if (err) {
       res.json({
-        dbError: err,
-        message: 'No staff member matching credential found',
+        message: err.message,
+        reason: 'No staff member found',
       });
     }
     res.json({ message: 'Staff member found', data: _staff });
