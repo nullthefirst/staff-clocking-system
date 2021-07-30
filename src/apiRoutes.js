@@ -12,8 +12,8 @@ router
   .patch(staffController.update)
   .delete(staffController.fire);
 
-router.route('/in/:staff_id').post(staffController.inside);
+router.route('/in/').post(staffController.inside);
 
-router.route('/out/:staff_id').post(staffController.outside);
+router.route('/out/').post(staffController.outside);
 
 module.exports = router;

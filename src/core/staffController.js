@@ -97,7 +97,7 @@ exports.fire = (req, res) => {
 
 // register clock-in
 exports.inside = async (req, res) => {
-  const query = { staff_id: req.params.staff_id };
+  const query = { staff_id: req.body.staff_id };
   const update = { clockIn: Date(Date.now()) };
 
   let _staff = await Staff.findOneAndUpdate(query, update, { new: true });
@@ -114,7 +114,7 @@ exports.inside = async (req, res) => {
 
 // register clock-out
 exports.outside = async (req, res) => {
-  const query = { staff_id: req.params.staff_id };
+  const query = { staff_id: req.body.staff_id };
 
   let _staff = await Staff.findOne(query);
   let _staffExit;
