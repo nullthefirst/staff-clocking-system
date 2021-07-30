@@ -45,11 +45,9 @@ class StaffDirectory extends React.Component {
               className="list-group-item d-flex justify-content-between align-items-start ">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{name}</div>
-                <button className="btn btn-info me-2">
-                  <Link to={`/staff/${_id}`}>
-                    <i className="bi bi-arrow-up-right-square-fill text-light"></i>
-                  </Link>
-                </button>
+                <Link to={`/info/${_id}`} className="big-btn me-2">
+                  <i className="bi bi-arrow-up-right-square-fill text-primary"></i>
+                </Link>
                 <span>ID: {staff_id}</span>
               </div>
             </li>
@@ -72,7 +70,10 @@ class StaffDirectory extends React.Component {
       <div className="container-fluid" id="staffDirectory">
         <div className="row">
           <div className="col col-md-8">
-            <h2 className="text-info">Staff Directory</h2>
+            <Link to={`/`} className="big-btn mb-3">
+              <i className="bi bi-arrow-left-square-fill text-light"></i>
+            </Link>
+            <h2 className="text-primary">Staff Directory</h2>
             {contentMarkup}
           </div>
         </div>
