@@ -12,7 +12,7 @@ router
   .patch(staffController.update)
   .delete(staffController.fire);
 
-router.route('/in/:id').post(staffController.inside);
+router.route('/in/:staff_id').post(staffController.inside);
 
 router.route('/out/:id').post(staffController.outside);
 
