@@ -78,26 +78,17 @@ exports.fire = (req, res) => {
 };
 
 // register clock-in
-exports.inside = (req, res) => {
-  Staff.findById(req.params.id, (err, _staff) => {
-    if (err) {
-      res.json(err);
-    }
+exports.inside = async (req, res) => {
+  const query = { staff_id: req.params.staff_id };
+  const update = { clockIn: Date(Date.now()) };
 
-    try {
-      _staff.clockIn = Date(Date.now());
-    } catch (err) {
-      res.json(err);
-    }
+  let _staff = await Staff.findOneAndUpdate(query, update, { new: true });
 
-    _staff.save((err) => {
-      if (err) {
-        res.json(err);
-      }
-
-      res.json({ message: 'Staff clocked in', data: _staff });
-    });
-  });
+  try {
+    res.json({ message: 'Staff clocked in', data: _staff });
+  } catch (err) {
+    res.json(err);
+  }
 };
 
 // register clock-out
