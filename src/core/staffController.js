@@ -13,7 +13,7 @@ exports.create = async (req, res) => {
     await _staff.save();
     res.json({
       message: 'New staff member added',
-      data: _staff,
+      output: _staff,
     });
   } catch (err) {
     res.json({
@@ -28,7 +28,7 @@ exports.list = async (req, res) => {
   const _staff = await Staff.find();
 
   try {
-    res.json({ message: 'Staff list retrieved', data: _staff });
+    res.json({ message: 'Staff list retrieved', output: _staff });
   } catch (err) {
     res.json({
       status: 'error',
@@ -46,7 +46,7 @@ exports.details = (req, res) => {
         reason: 'No staff member found',
       });
     }
-    res.json({ message: 'Staff member found', data: _staff });
+    res.json({ message: 'Staff member found', output: _staff });
   });
 };
 
@@ -77,7 +77,7 @@ exports.update = (req, res) => {
         });
       }
 
-      res.json({ message: 'Staff member updated', data: _staff });
+      res.json({ message: 'Staff member updated', output: _staff });
     });
   });
 };
@@ -103,7 +103,7 @@ exports.inside = async (req, res) => {
   let _staff = await Staff.findOneAndUpdate(query, update, { new: true });
 
   try {
-    res.json({ message: 'Staff clocked in', data: _staff });
+    res.json({ message: 'Staff clocked in', output: _staff });
   } catch (err) {
     res.json({
       status: 'error',
@@ -130,7 +130,7 @@ exports.outside = async (req, res) => {
   }
 
   try {
-    res.json({ message: responseMessage, data: _staffExit });
+    res.json({ message: responseMessage, output: _staffExit });
   } catch (err) {
     res.json({
       status: 'error',
