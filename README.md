@@ -20,3 +20,4 @@ Staff Clock-In System using MERN Stack
 ## Deployments
 
 - [User Interface](https://staff-clocking-system.netlify.app/)
+- [Server](https://staff-clocking-system.herokuapp.com/)
