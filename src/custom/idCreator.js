@@ -10,8 +10,6 @@ function createId(text) {
 
   staffId.pop();
 
-  staffId.push('#company');
-
   return staffId.join('');
 }
 
