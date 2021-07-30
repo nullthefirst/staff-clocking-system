@@ -51,6 +51,16 @@ class Homepage extends React.Component {
               <span>Staff registration</span>
               <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
             </Link>
+            <div className="my-1"></div>
+            <Link to={`/clock-in`} className="link-alt mt-5">
+              <span>Staff clock-in</span>
+              <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
+            </Link>
+            <div className="my-1"></div>
+            <Link to={`/clock-out`} className="link-alt mt-5">
+              <span>Staff clock-out</span>
+              <i className="ms-2 bi bi-arrow-right-square-fill text-light"></i>
+            </Link>
           </div>
           <div className="col-md-2"></div>
         </div>
