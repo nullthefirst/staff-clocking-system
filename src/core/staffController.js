@@ -94,12 +94,22 @@ exports.inside = async (req, res) => {
 // register clock-out
 exports.outside = async (req, res) => {
   const query = { staff_id: req.params.staff_id };
-  const update = { clockOut: Date(Date.now()) };
 
-  let _staff = await Staff.findOneAndUpdate(query, update, { new: true });
+  let _staff = await Staff.findOne(query);
+  let _staffExit;
+  let responseMessage;
+
+  if (_staff.clockIn) {
+    const update = { clockOut: Date(Date.now()) };
+    _staffExit = await Staff.findOneAndUpdate(query, update, { new: true });
+    responseMessage = 'Staff clocked out';
+  } else {
+    _staffExit = _staff;
+    responseMessage = 'Staff needs to clock in first';
+  }
 
   try {
-    res.json({ message: 'Staff clocked out', data: _staff });
+    res.json({ message: responseMessage, data: _staffExit });
   } catch (err) {
     res.json(err);
   }
