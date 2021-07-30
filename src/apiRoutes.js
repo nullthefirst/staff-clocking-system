@@ -14,6 +14,6 @@ router
 
 router.route('/in/:staff_id').post(staffController.inside);
 
-router.route('/out/:id').post(staffController.outside);
+router.route('/out/:staff_id').post(staffController.outside);
 
 module.exports = router;
