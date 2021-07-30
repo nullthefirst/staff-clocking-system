@@ -4,13 +4,13 @@ Staff Clock-In System using MERN Stack
 
 ## Feature list
 
-- [ ] Staff creation
-- [ ] Staff update details (only name)
-- [ ] Display staff list
-- [ ] Staff ID required
-  - [ ] Clock in
-  - [ ] Clock out
-- [ ] View staff details
+- [x] Staff creation
+- [x] Staff update details (only name)
+- [x] Display staff list
+- [x] Staff ID required
+  - [x] Clock in
+  - [x] Clock out
+- [x] View staff details
 
 ## Stack branches
 
