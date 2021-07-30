@@ -16,7 +16,10 @@ exports.create = async (req, res) => {
       data: _staff,
     });
   } catch (err) {
-    res.json(err);
+    res.json({
+      status: 'error',
+      body: err,
+    });
   }
 };
 
@@ -27,7 +30,10 @@ exports.list = async (req, res) => {
   try {
     res.json({ message: 'Staff list retrieved', data: _staff });
   } catch (err) {
-    res.json(err);
+    res.json({
+      status: 'error',
+      body: err,
+    });
   }
 };
 
@@ -48,18 +54,27 @@ exports.details = (req, res) => {
 exports.update = (req, res) => {
   Staff.findById(req.params.id, (err, _staff) => {
     if (err) {
-      res.json(err);
+      res.json({
+        status: 'error',
+        body: err,
+      });
     }
 
     try {
       _staff.name = req.body.name;
     } catch (error) {
-      res.json(err);
+      res.json({
+        status: 'error',
+        body: err,
+      });
     }
 
     _staff.save((err) => {
       if (err) {
-        res.json(err);
+        res.json({
+          status: 'error',
+          body: err,
+        });
       }
 
       res.json({ message: 'Staff member updated', data: _staff });
@@ -71,7 +86,10 @@ exports.update = (req, res) => {
 exports.fire = (req, res) => {
   Staff.deleteOne({ _id: req.params.id }, (err) => {
     if (err) {
-      res.json(err);
+      res.json({
+        status: 'error',
+        body: err,
+      });
     }
     res.json({ message: 'Staff member deleted' });
   });
@@ -87,7 +105,10 @@ exports.inside = async (req, res) => {
   try {
     res.json({ message: 'Staff clocked in', data: _staff });
   } catch (err) {
-    res.json(err);
+    res.json({
+      status: 'error',
+      body: err,
+    });
   }
 };
 
@@ -111,6 +132,9 @@ exports.outside = async (req, res) => {
   try {
     res.json({ message: responseMessage, data: _staffExit });
   } catch (err) {
-    res.json(err);
+    res.json({
+      status: 'error',
+      body: err,
+    });
   }
 };
